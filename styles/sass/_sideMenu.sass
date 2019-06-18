@@ -1,0 +1,160 @@
+
+$menu-width: 400px
+$menu-width-mob: 320px
+$menu-bg: #1b1b24
+.side-menu
+  position: fixed
+  top: 0
+  bottom: 0
+  right: -$menu-width
+  background-color: $menu-bg
+  width: $menu-width
+  min-height: 100vh
+  height: 100%
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5)
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  overflow: auto
+  padding: 20px 0
+  overflow-x: hidden
+  transition: $anim
+  margin: 0
+  z-index: 999
+  
+  ul
+    margin: 0
+    padding-left: 40px
+  +media-breakpoint-down(xs)
+    right: -$menu-width-mob
+    width: $menu-width-mob
+  // avatar
+  &-avatar
+    max-width: 50%
+    margin: 10px auto
+    padding: 10px 0
+    margin-bottom: 40px
+    img
+      width: 100%
+      background-color: #fff
+      border-radius: 100%
+      margin-right: 15px
+    a
+      color: #dedede
+      text-align: center
+      display: flex
+      align-items: center
+  // heading
+  &-heading
+    text-align: center
+    margin-bottom: 20px
+    &__title
+      font-weight: 200
+      margin-bottom: 0
+      color: #dedede
+    &__footer
+      padding: 0
+      margin: 0
+      color: #9c9c9c
+      font-size: 18px
+      font-weight: 300
+  &-wrap
+    width: 100%
+    display: grid
+    text-align: center
+  // links
+  &-link-wrap
+    list-style: none
+    margin: 0
+    width: 100%
+    display: block
+    cursor: pointer
+    transition: $anim
+    position: relative
+  &__link
+    color: #dedede
+    display: block
+    width: 100%
+    padding: 7px
+    border-top: 1px solid #232331
+    border-bottom: 1px solid #232331
+    transition: $anim
+    font-weight: 400
+    font-size: 16px
+    box-shadow: inset 0 0 1px 2px transparent
+    &:hover
+      background-color: rgba(245, 245, 245, 0.6)
+      box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.04)
+      color: #222
+    &.is-active
+      border-left: 4px solid $accent
+      box-shadow: inset 0 0 1px 2px rgba(0,0,0,0.02)
+
+
+
+#site-content
+  transition: $anim
+#my-body.is-active
+  #site-content
+    transform: translateX(-$menu-width)
+    transition-delay: .2s
+    filter: brightness(0.4)
+    &:before
+      content: ''
+      position: fixed
+      right: 0
+      left: 0
+      top: 0
+      bottom: 0
+      z-index: 999999999
+    +media-breakpoint-down(xs)
+      transform: translateX(-$menu-width-mob)
+  .side-menu
+    right: 0
+
+
+
+// button end sublinks
+
+.side-link-button
+  position: absolute
+  right: 0
+  top: 0
+  height: 37px
+  width: 60px
+  padding: 0
+  border: none
+  cursor: pointer
+  background-color: #fff
+  font-size: 16px
+  color: $accent
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: .6s
+  box-shadow: -2px 0px 2px 0px rgba(0, 0, 0, 0.15)
+  outline: none
+  +media-breakpoint-down(xs)
+    width: 80px
+  .fas
+    transform: rotate(-90deg)
+    color: rgba(0, 0, 0, 0.15)
+    transition: 1s
+  &:hover
+    box-shadow: -2px 0px 2px 0px rgba(0, 0, 0, 0.23)
+    .fas
+      color: $accent
+
+
+.side-menu
+  &-subwrap
+    overflow: hidden
+    transition: .4s
+    height: 0
+
+
+.side-link-button.is-active
+  .fas
+    transform: rotate(-180deg)
+    color: $accent
+

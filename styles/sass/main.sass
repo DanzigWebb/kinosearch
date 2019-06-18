@@ -1,0 +1,140 @@
+@import "vars"
+@import "libs"
+@import "sideMenu"
+@import "most"
+// custom
+.header
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2)
+  background-color: #fff
+  position: absolute
+  width: 100%
+  transition-property: transform, opacity
+  transition-duration: .5s
+  top: 40px
+  z-index: 10
+  &.fade
+    top: 0
+    opacity: 1
+    position: fixed
+    transition-property: transform, opacity
+    transition-duration: .5s
+    animation: fadeHeader
+    animation-delay: .3s
+    animation-duration: 1s
+    animation-fill-mode: backwards
+    z-index: 10
+    .header-row
+      height: 70px
+  &-row
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 120px
+    +media-breakpoint-down(xs)
+      height: 90px  
+  &-logo
+    img
+      margin-right: 20px
+    &__link
+      color: #282836
+      font-size: 20px
+      letter-spacing: 1px
+      font-weight: 400
+      &:hover
+        color: #282836
+
+  // header-menu
+  &-menu
+    +media-breakpoint-down(xs)
+      display: none
+    &-wrap
+      display: flex
+      justify-content: space-between
+      margin: 0
+      padding: 0
+      li
+        list-style: none
+    &__link
+      text-transform: uppercase
+      font-size: 13px
+      font-weight: 600
+      letter-spacing: -0.5px
+      color: #686c70
+      margin: 0 10px
+      padding-bottom: 5px
+      &.is-active
+        color: $accent
+        border-bottom: 2px solid $accent
+      &:hover
+        color: $accent
+.main
+  margin-top: 160px
+#anim-title
+  padding-top: 40px
+.form-wrap
+  height: 20vh
+  display: flex
+  align-items: center
+  form
+    display: flex
+    align-items: center
+    height: 45px
+    input
+      height: 100%
+      width: 80%
+      border: solid #dedede
+      padding-left: 20px
+      border-radius: 5px
+
+// вывод фильма
+
+.output
+  &-item
+    padding: 10px
+    margin: 20px 0
+  &__title
+    color: #222
+    font-size: 28px
+    line-height: 1.1
+    padding: 10px
+    span
+      font-size: 18px
+      font-weight: 300
+  &__img
+    max-width: 100%
+
+
+.main-footer
+  text-align: center
+  display: flex
+  align-items: flex-end
+  justify-content: center
+  background-color: #282836
+  position: fixed
+  bottom: 0
+  right: 0
+  left: 0
+  z-index: -1
+  height: 450px
+  color: rgba(255, 255, 255, 0.4)
+  padding-bottom: 60px
+  p
+    font-weight: 400
+  .btn-up
+    border: none
+    color: rgba(255, 255, 255, 0.4)
+    background-color: transparent
+    font-size: 33px
+
+.footer-menu
+  display: flex
+  justify-content: center
+  text-align: center
+  margin: 30px 0
+  li
+    list-style: none
+    margin: 0 5px
+    padding: 0
+  a
+    color: rgba(255, 255, 255, 0.4)
+@import "media"
